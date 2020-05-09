@@ -8,7 +8,6 @@ class SeriesController extends Controller
 {
     function index(Request $request)
     {
-        var_dump($request->query());
         $series = [
             'Grey\'s Anatomy',
             'Lost',
@@ -16,12 +15,6 @@ class SeriesController extends Controller
             'Agents of SHIELD 2'
         ];
 
-        $html = "<ul>";
-        foreach ($series as $serie) {
-            $html .= "<li>$serie</li>";
-        }
-        $html .= "</ul>";
-
-        return $html;
+        return view('series.index', compact('series'));
     }
 }
